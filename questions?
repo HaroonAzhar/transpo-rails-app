@@ -1,0 +1,10 @@
+questions? 
+
+stops should be a model?..... note[1]:a route has many stops. note[2]; stops needs to be an array
+
+buses?
+
+no join table or many-to-many relation
+
+
+nested routes policy and roles?
