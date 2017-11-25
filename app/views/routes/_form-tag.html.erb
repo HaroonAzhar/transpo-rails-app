@@ -1,0 +1,9 @@
+<label>Route number:</label><br>
+<%= text_field_tag :title %><br>
+ 
+<label>stops</label><br>
+<p><%= collection_check_boxes(:route, :stop_ids, Stop.all, :id, :name)%>
+
+ <%= submit_tag "submit" %>
+
+

@@ -1,0 +1,5 @@
+<h2>Route number : <%= @route.number %></h2>
+<% @route.stops.each_with_index do |stop,index| %>
+   <p> stops: </p>
+	<p><%= index%> : <%= stop/name %></p>
+	<%end%>

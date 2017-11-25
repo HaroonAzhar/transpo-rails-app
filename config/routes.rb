@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :routes do 
 
   
-    resources :users 
-    resources :stops
+      resources :users 
+      resources :stops
   end
   resources :stops
 

@@ -8,3 +8,14 @@ no join table or many-to-many relation
 
 
 nested routes policy and roles?
+
+
+add address to user? ... register address
+
+formtag vs formfor? 
+	1) form_for pointing to '/' instead of appropraite route in route's new.html.erb
+
+	@obeject in new is same as @object in create, why create a smae object twice e.g stop new?
+
+	2) form_tag needed paramteres . discuss routes. had to manually give the route instead of url_helper  form_for in new.html.erb for routes
+
