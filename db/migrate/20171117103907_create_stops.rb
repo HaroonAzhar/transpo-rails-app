@@ -4,7 +4,7 @@ class CreateStops < ActiveRecord::Migration[5.1]
       t.integer :number
       t.string :name
       t.text :details
-      t.integer :route_id
+      t.string :route_id
 
       t.timestamps
     end

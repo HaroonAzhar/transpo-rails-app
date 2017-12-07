@@ -13,9 +13,20 @@ nested routes policy and roles?
 add address to user? ... register address
 
 formtag vs formfor? 
-	1) form_for pointing to '/' instead of appropraite route in route's new.html.erb
+	
 
-	@obeject in new is same as @object in create, why create a smae object twice e.g stop new?
+	
 
-	2) form_tag needed paramteres . discuss routes. had to manually give the route instead of url_helper  form_for in new.html.erb for routes
 
+	4) change user or edit?
+
+	
+
+
+	6) auth link didn't worked wthout user being omniauthable
+
+	7) strong params not working, stop controllers
+	8)slug intefere with route's number in url
+
+	9) empty value in stop_ids array in route create params
+	x) should i use callback controller r session to create user and session

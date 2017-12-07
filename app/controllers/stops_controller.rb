@@ -1,15 +1,25 @@
 class StopsController < ApplicationController
 	def new
 		@stop=Stop.new
+		@route=Route.find_by(id: params[:route_id])
+	
 	    
 	end
 
 	def create
+		
+		if params[:route_id]
+			@route=Route.find_by(id: params[:route_id])
+			@stop= Stop.new(stop_params(:name,:number,:details))
+			@stop.route=@route 
+			@stop.save!
+			binding.pry
+			
+		else
+			#throw error
+		
+		end
 
-		#without nested resources
-		stop= Stop.new(stop_params(:name,:number,:details))
-		stop.save
-	
 	
 
        redirect_to stops_path
@@ -21,9 +31,16 @@ class StopsController < ApplicationController
 	end
 
 	def update
-		@stop = Stop.find(params[:id])
-	    @stop.update(stop_params(:name,:number,:details))
-		@stop.save	
+		if params[:route_id]
+			@route=Route.find_by(id: params[:route_id])
+			@stop = Stop.find(params[:id])
+	    	@stop.update(stop_params(:name,:number,:details))
+			@stop.route=route 
+			@stop.save!
+			binding.pry
+		else
+		#throwerror
+	end
 	end
 
 	def show

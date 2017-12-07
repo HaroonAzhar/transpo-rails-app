@@ -13,17 +13,32 @@ class RoutesController < ApplicationController
 		@route=Route.find_by(id: params[:id])
 	end
 	def update
-		puts "update"
-		raise params.inspect
+		@route=Route.find_by(id: params[:id])
+		@route.update(route_params(:number))
+		params[:route][:stop_ids].each do |stop_id|
+			if stop_id.to_i>0
+			stop=Stop.find_by(id: stop_id.to_i)
+			@route.stops<<stop
+		end
+	   end
+		@route.save
+		binding.pry
 	end
 	def create
-		puts "create"
-		raise params.inspect
+		@route=Route.new(route_params(:number))
+		params[:route][:stop_ids].each do |stop_id|
+			if stop_id.to_i>0
+			stop=Stop.find_by(id: stop_id.to_i)
+			@route.stops<<stop
+		end
+		end
+		@route.save
+		binding.pry
 	end
 
 
 	def route_params(*args)
-		params.require(:stop).permit(*args)
+		params.permit(*args)
 	end
 
 end

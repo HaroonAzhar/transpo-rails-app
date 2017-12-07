@@ -1,7 +1,7 @@
 <div>
 	<%= form_for @route do |f| %>
-		<p><%= f.text_field :number %></p>
-		<p>start</p>
+		<p>Name : <%= f.text_field :number %></p>
+		<p>stops</p>
 		<p><%= collection_check_boxes(:route, :stop_ids, Stop.all, :id, :name)%></p>
 		<p>end</p>
 		<p><%= f.submit  %></p>

@@ -1,9 +1,9 @@
 <div>
 	<%= form_for @stop do |f| %>
-	<%= f.text_field :number %>
-	<%= f.text_field :name %>
-	<%= f.text_field :details %>
-	
+	Number:<%= f.text_field :number %></br>
+	Name:<%= f.text_field :name %></br>
+	Details:<%= f.text_field :details %></br>
+	<%= hidden_field_tag 'route_id', @route.id %>
 	<%= f.submit %>
 	<% end %>
 </div>

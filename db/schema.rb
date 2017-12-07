@@ -22,13 +22,13 @@ ActiveRecord::Schema.define(version: 20171117103907) do
     t.integer "number"
     t.string "name"
     t.text "details"
-    t.integer "route_id"
+    t.string "route_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "stop_id"
+    t.string "stop_id"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
