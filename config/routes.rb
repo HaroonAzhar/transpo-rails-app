@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       resources :stops
   end
 
+   get '/users/omniForm', to: "users#omniForm"
+   post '/users/omni', to: "users#omniCreate"
   resources :users
   resources :stops , only:[:show,:update,:create,:delete,:index]
 

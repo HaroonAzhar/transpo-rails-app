@@ -12,7 +12,7 @@ nested routes policy and roles?
 
 add address to user? ... register address
 
-formtag vs formfor? 
+     formtag vs formfor? 
 	
 
 	
@@ -23,10 +23,14 @@ formtag vs formfor?
 	
 
 
-	6) auth link didn't worked wthout user being omniauthable
+	
 
 	7) strong params not working, stop controllers
 	8)slug intefere with route's number in url
 
 	9) empty value in stop_ids array in route create params
-	x) should i use callback controller r session to create user and session
+	x) should i use callback controller 0r session to create user and session
+	x1) can't push github
+	x2) get rid of redundant routes 
+	x3) devise callback controller,skip_before_action  :verify_authenticity_token what does it do?
+	x4) hidden data being passed around, safe? 

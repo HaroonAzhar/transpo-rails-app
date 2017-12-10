@@ -1,5 +1,10 @@
 <div>
-	<%=form_tag  user_registration_path do %>
+	<%=form_for @user do  |f| %>
+
+	Email:<%= f.text_field :number %></br>
+	Password:<%= f.text_field :name %></br>
+	#dropdown for routes collection
+	
      <%= submit%>
 	<%end%>
 </div>
