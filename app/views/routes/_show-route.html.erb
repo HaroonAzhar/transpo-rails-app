@@ -1,5 +1,11 @@
-<h2>Route number : <%= @route.number %></h2>
+<h2>Route number : <%= @route.number %> </h2>
+ <p> <%= link_to "edit", edit_route_path %></p>   
+     <p> <%= form_tag route_path(@route), method: "delete" %>
+  		<%= submit_tag "Delete this route" %>
+		</p>
+	
+
 <% @route.stops.each_with_index do |stop,index| %>
    <p> stops: </p>
-	<p><%= index%> : <%= stop.name %></p>
+	<p> <%=index%> <%=  link_to stop.name, route_stop_path(@route,stop) %> : <%=  %></p>
 	<%end%>

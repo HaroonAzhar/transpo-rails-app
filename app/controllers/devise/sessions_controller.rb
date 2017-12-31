@@ -1,26 +1,24 @@
 class Devise::SessionsController < ApplicationController
+def new
+  @user=User.new
+ 
+end
+def create
+     
+	user=User.find_by(email: params[:email] )
+	if (user.valid_password?(params[:password]))
+		current_user= user
+		session[:user_id]= user.id 
+		current_user=user
+		binding.pry
+		redirect_to routes_path
+	else
+		#display errors with redirect to sign_in
 
-  def createWithOmni
-    @user = User.find_or_create_by(uid: auth['uid']) do |u|
-      u.name = auth['info']['name']
-      u.email = auth['info']['email']
-      
-    end
- 
-    session[:user_id] = @user.id
-    current_user=@user
 
- 
-    redirect_to  user_registration_path 
-  end
+	end
 
-  def startOmni
-    
-  end
- 
-  private
- 
-  def auth
-    request.env['omniauth.auth']
-  end
+
+end
+
 end

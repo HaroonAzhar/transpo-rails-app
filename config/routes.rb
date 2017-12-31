@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_callbacks => "devise/omniauth_callbacks" }
-  root 'routes#index', as: 'routes'
+  devise_for :users
+  root 'routes#index'
 
-  get '/auth/:provider/callback' => 'devise/sessions#createWithOmni'
+  
  
   resources :routes do 
 
@@ -11,10 +11,16 @@ Rails.application.routes.draw do
       resources :stops
   end
 
-   get '/users/omniForm', to: "users#omniForm"
-   post '/users/omni', to: "users#omniCreate"
+  resources :stops do 
+
+  
+      resources :users 
+      
+  end
   resources :users
-  resources :stops , only:[:show,:update,:create,:delete,:index]
+
+ 
+ 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

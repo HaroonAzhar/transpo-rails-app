@@ -1,0 +1,12 @@
+<%=form_for @user do  |f| %>
+
+  Email:<%= f.text_field :email %></br>
+  Password:<%= f.text_field :password %></br>
+
+  <!--d collection for a selecting stop > -->
+  in ussers 
+  <%= f.collection_radio_buttons(:stop_id, Stop.all, :id, :name)%></br>
+  <%= f.radio_button(:role, "student") %> Student    
+ <%= f.radio_button(:role, "admin") %> Admin
+    <p><%= f.submit  %></p>
+     <%end%>

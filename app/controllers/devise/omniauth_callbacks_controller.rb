@@ -14,11 +14,9 @@ class Devise::OmniauthCallbacksController  < ApplicationController
         current_user=@user
      
         binding.pry
-        redirect_to  users_omniForm_path
+        redirect_to  routes_path
 	end
-	 def passthru
-       render status: 404, plain: "Not found. Authentication passthru."
-     end
+	 
 
      def auth
       request.env['omniauth.auth']

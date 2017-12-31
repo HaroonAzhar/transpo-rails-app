@@ -1,4 +1,5 @@
 class StopsController < ApplicationController
+	 load_and_authorize_resource
 	def new
 		@stop=Stop.new
 		@route=Route.find_by(id: params[:route_id])
@@ -13,7 +14,7 @@ class StopsController < ApplicationController
 			@stop= Stop.new(stop_params(:name,:number,:details))
 			@stop.route=@route 
 			@stop.save!
-			binding.pry
+			
 			
 		else
 			#throw error
@@ -26,7 +27,10 @@ class StopsController < ApplicationController
 
 		
 	end
+
 	def edit
+		
+		@route=Route.find_by(id: params[:route_id])
 		@stop=Stop.find_by(id: params[:id])
 	end
 
@@ -35,12 +39,12 @@ class StopsController < ApplicationController
 			@route=Route.find_by(id: params[:route_id])
 			@stop = Stop.find(params[:id])
 	    	@stop.update(stop_params(:name,:number,:details))
-			@stop.route=route 
+			@stop.route=@route 
 			@stop.save!
-			binding.pry
+			
 		else
 		#throwerror
-	end
+		end
 	end
 
 	def show

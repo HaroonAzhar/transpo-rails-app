@@ -1,0 +1,11 @@
+<%=form_for @user do  |f| %>
+
+  Email:<%= f.text_field :email %></br>
+  Password:<%= f.text_field :password %></br>
+
+  <!--d collection for a selecting stops > -->
+  in ussers 
+   <p><%= collection_check_boxes(:stop, :stop_ids, Stop.all, :id, :name)%></p>
+  
+    <p><%= f.submit  %></p>
+     <%end%>

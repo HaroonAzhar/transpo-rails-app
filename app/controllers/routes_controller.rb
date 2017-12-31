@@ -1,20 +1,23 @@
 class RoutesController < ApplicationController
-
+	load_and_authorize_resource
 	def index
-		
+	
 	end
 	def show
 		@route=Route.find_by(id: params[:id])
 	end
 	def new
+		@user=User.find_by(id: 1)
 		@route=Route.new
+	
 	end
 	def edit
 		@route=Route.find_by(id: params[:id])
 	end
 	def update
 		@route=Route.find_by(id: params[:id])
-		@route.update(route_params(:number))
+		raise params.inspect
+		@route.number=params[:route][:number]
 		params[:route][:stop_ids].each do |stop_id|
 			if stop_id.to_i>0
 			stop=Stop.find_by(id: stop_id.to_i)
@@ -22,10 +25,12 @@ class RoutesController < ApplicationController
 		end
 	   end
 		@route.save
-		binding.pry
+		redirect_to routes_path 
 	end
 	def create
-		@route=Route.new(route_params(:number))
+		binding.pry 
+		@route=Route.new
+		@route.number=params[:route][:number]
 		params[:route][:stop_ids].each do |stop_id|
 			if stop_id.to_i>0
 			stop=Stop.find_by(id: stop_id.to_i)
@@ -33,12 +38,12 @@ class RoutesController < ApplicationController
 		end
 		end
 		@route.save
-		binding.pry
+	    redirect_to routes_path 
 	end
 
 
 	def route_params(*args)
-		params.permit(*args)
-	end
+	 	params.permit(*args)
+	 end
 
 end
