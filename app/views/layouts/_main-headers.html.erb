@@ -1,8 +1,13 @@
-
+<% if session[:user_id] == nil %>
 	 <%= link_to "sign up", new_user_registration_path %>
 	 <%= link_to "login", new_user_session_path %>
 	 <%= link_to('Log in with Facebook!', user_facebook_omniauth_authorize_path()) %>
-	
+	 <% else %>
+	<%if User.find_by(id: session[:user_id]).role=="admin" %>
+		<%= link_to "create a new stop", new_user_registration_path %>
+		<%= link_to "create a new route", new_user_registration_path %>
+		<% end %>
 	<%= link_to('Sign out', destroy_user_session_path) %>
 	<%= link_to('Routes', routes_path) %>
+<% end %>
 	

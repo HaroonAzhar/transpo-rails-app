@@ -8,7 +8,13 @@ class Devise::RegistrationsController < DeviseController
         @user.password=params[:user][:password]
         @user.stop=Stop.find_by(id: params[:user][:stop_id])
         @user.role= params[:user][:role]
-       @user.save!
+        @user.username=params[:user][:username]
+        #@user=User.create(user_params)
+        if @user.role="admin"
+          @user.save(validate: false)
+        else
+          @user.save!
+        end
        binding.pry
        redirect_to new_user_session_path
 
