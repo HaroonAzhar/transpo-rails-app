@@ -21,7 +21,7 @@ gem 'omniauth-facebook'
 gem 'dotenv-rails'
 gem 'devise'
 gem 'pry'
-gem "pundit"
+#gem "pundit"
 gem 'cancancan'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

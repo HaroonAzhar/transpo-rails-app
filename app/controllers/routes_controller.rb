@@ -1,7 +1,7 @@
 class RoutesController < ApplicationController
 	load_and_authorize_resource
 	def index
-	
+	  binding.pry
 	end
 	def show
 		@route=Route.find_by(id: params[:id])

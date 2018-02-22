@@ -2,6 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+       
     
         user ||=User.new
       
@@ -17,7 +18,7 @@ class Ability
           # needs to match the requesting User's id
           can :update, User, { user_id: user.id }
         end
-        if user.admin?
+        if user.role=="admin"
           can :manage, Route
           can :manage, Stop
         end

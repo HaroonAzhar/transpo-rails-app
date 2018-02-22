@@ -3,6 +3,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 
+
+  rescue_from CanCan::AccessDenied do |exception|
+  	exception.default_message= "You are not allowed to do that"
+    redirect_to main_app.root_url, :alert => exception.message
+  end
+
+
 #   def signedin?
 #   	 session[:user_id]
 #   end
