@@ -31,5 +31,8 @@ questions?
 3) structure slugs and and over all structure
 4) inheret slugs in model
 5) validation on routes and stop associations not working?
+6) catch/ handle ability class exception?
+7) catc/ handle validation exceptions?
+8) how to handle exception(structure)
 
 13) an empty stop_id in routes create params

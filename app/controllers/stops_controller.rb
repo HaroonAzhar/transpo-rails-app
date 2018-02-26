@@ -10,22 +10,16 @@ class StopsController < ApplicationController
 	end
 
 	def create
+		@stop=Stop.new(stop_params(params))
 		
-		if params[:route_id]
-			@route=Route.find_by(id: params[:route_id])
-			@stop= Stop.new(stop_params(:name,:number,:details))
-			binding.pry
-			@stop.route=@route 
+		
 			@stop.save!
 			
 			
-		else
-			#throw error
 		
-		end
 
 	
-
+		binding.pry
        redirect_to stops_path
 
 		
@@ -55,8 +49,7 @@ class StopsController < ApplicationController
 	end
 
 	 def stop_params(*args)
-	 	params.require(:stop).permit(*args)
-		
+	 	params.require(:stop).permit(:number, :name, :details, :route_id)
 	end
 
 end
