@@ -7,8 +7,9 @@ class RoutesController < ApplicationController
 		@route=Route.find_by(id: params[:id])
 	end
 	def new
-		@user=User.find_by(id: 1)
+		
 		@route=Route.new
+	
 	
 	end
 	def edit

@@ -3,6 +3,7 @@
 	Number:<%= f.text_field :number %></br>
 	Name:<%= f.text_field :name %></br>
 	Details:<%= f.text_field :details %></br>
+	<%=  %>
 	<%= hidden_field_tag 'route_id', @route.id %>
 	<%= f.submit %>
 	<% end %>

@@ -2,6 +2,8 @@ class StopsController < ApplicationController
 	 load_and_authorize_resource
 	def new
 		@stop=Stop.new
+		binding.pry
+		
 		@route=Route.find_by(id: params[:route_id])
 	
 	    

@@ -28,5 +28,6 @@ questions?
 
 1)create user metaprogramicaly in sign_up path
 2) current_user accessable devise sub controllers but in in other 
+3) structure slugs and and over all structure
 
 13) an empty stop_id in routes create params
