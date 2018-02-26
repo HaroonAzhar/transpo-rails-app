@@ -4,7 +4,7 @@ class StopsController < ApplicationController
 		@stop=Stop.new
 		binding.pry
 		
-		@route=Route.find_by(id: params[:route_id])
+		
 	
 	    
 	end
@@ -14,6 +14,7 @@ class StopsController < ApplicationController
 		if params[:route_id]
 			@route=Route.find_by(id: params[:route_id])
 			@stop= Stop.new(stop_params(:name,:number,:details))
+			binding.pry
 			@stop.route=@route 
 			@stop.save!
 			
