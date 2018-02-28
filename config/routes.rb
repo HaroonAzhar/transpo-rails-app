@@ -7,14 +7,13 @@ Rails.application.routes.draw do
  
   resources :routes do 
 
-     resources :stops, only: [:index]
+     resources :stops
   end
 
   resources :stops do 
 
   
-      resources :users, only: [:index] 
-      
+      resources :users
   end
   resources :users
 

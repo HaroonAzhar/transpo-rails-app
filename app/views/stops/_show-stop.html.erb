@@ -1,10 +1,13 @@
 <h2> Stop  <%= @stop.number%>: <%= @stop.name %> </h2> 
 
+<p> <%= link_to "edit", edit_stop_path %></p>   
+<p> <%= link_to "Delete", @stop, method: :delete, data: { confirm: "Really?" } %></p>
+
 <p><%= @stop.details%> </p>
  
 
 
-<p><%= Route.find_by(id: @stop.route_id)%></p>
+
 
 
 

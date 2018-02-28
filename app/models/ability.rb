@@ -7,7 +7,7 @@ class Ability
           
         can :read, Route
         can :read, Stop
-        
+     
       
 
         unless user.nil? 
