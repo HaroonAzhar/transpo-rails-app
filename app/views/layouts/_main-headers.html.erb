@@ -9,5 +9,6 @@
 		<% end %>
 	<%= link_to('Sign out', destroy_user_session_path) %>
 	<%= link_to('Routes', routes_path) %>
+	<%= link_to("profile", user_path(current_user.id)) %>
 <% end %>
 	

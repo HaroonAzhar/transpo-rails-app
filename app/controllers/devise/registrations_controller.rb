@@ -1,4 +1,5 @@
 class Devise::RegistrationsController < DeviseController
+ 
 
     def create
         

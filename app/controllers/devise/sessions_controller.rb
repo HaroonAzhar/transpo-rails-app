@@ -1,7 +1,7 @@
 class Devise::SessionsController < ApplicationController
+
 def new
   @user=User.new
- 
 end
 def create
      
@@ -12,10 +12,9 @@ def create
 		binding.pry
 		redirect_to routes_path
 	else
-		#display errors with redirect to sign_in
-
-
+		
 	end
+
 
 
 end

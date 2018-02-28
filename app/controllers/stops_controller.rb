@@ -1,5 +1,6 @@
 class StopsController < ApplicationController
 	 load_and_authorize_resource
+
 	def new
 		@stop=Stop.new
 	end
