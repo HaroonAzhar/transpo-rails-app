@@ -14,6 +14,7 @@ class RoutesController < ApplicationController
 		@route=Route.find_by(id: params[:id])
 	end
 	def update
+
 		@route=Route.find_by(id: params[:id])
 		@route.number=params[:route][:number]
 		params[:route][:stop_ids].each do |stop_id|
@@ -22,7 +23,11 @@ class RoutesController < ApplicationController
 			@route.stops<<stop
 		end
 	   end
+	   if @route.valid?
 		@route.save
+	   else
+	   	render :edit and return
+	   end
 		redirect_to routes_path 
 	end
 	def create
@@ -35,7 +40,11 @@ class RoutesController < ApplicationController
 			@route.stops<<stop
 		end
 		end
+		if @route.valid?
 		@route.save
+	   else
+	   	render :new and return
+	   end
 	    redirect_to routes_path 
 	end
 	def destroy

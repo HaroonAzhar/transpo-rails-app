@@ -7,8 +7,8 @@
 		 <%= link_to "create a new stop", new_stop_path %>
 		 <%= link_to "create a new route", new_route_path %>
 		<% end %>
-	<%= link_to('Sign out', destroy_user_session_path) %>
+	<%= link_to('Sign out', destroy_user_session_path,method: 'delete') %>
 	<%= link_to('Routes', routes_path) %>
-	<%= link_to("profile", user_path(current_user.id)) %>
+	<%= link_to("profile",  edit_user_registration_path(current_user.id)) %>
 <% end %>
 	

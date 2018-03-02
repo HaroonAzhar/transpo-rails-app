@@ -1,4 +1,6 @@
 <h2> this index of routes</h2>
+
+
 <% Route.all.each_with_index do |route,index| %>
 <p><%= index %>. <%= link_to route.number, route_path(route)   %></p>
 <%end %>

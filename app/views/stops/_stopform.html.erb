@@ -1,4 +1,6 @@
 <div>
+   <%= render 'stops/stop-errors' %>
+
 	<%= form_for @stop do |f| %>
 	Number:<%= f.text_field :number %></br>
 	Name:<%= f.text_field :name %></br>

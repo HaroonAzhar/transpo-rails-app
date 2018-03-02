@@ -9,14 +9,16 @@ def create
 	if (@user.valid_password?(params[:password]))
 		current_user= @user
 		session[:user_id]= @user.id 
-		binding.pry
 		redirect_to routes_path
 	else
-		
+		#throw error and check
 	end
 
-
-
+end
+def destroy
+	current_user=nil
+	session[:user_id]=nil
+	
 end
 
 end

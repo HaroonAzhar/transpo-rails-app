@@ -7,8 +7,12 @@ class StopsController < ApplicationController
 
 	def create
 		@stop=Stop.new(stop_params(params))
-		@stop.save!
-       redirect_to route_stops_path(@stop.route)
+		if @stop.valid?
+		  @stop.save
+	   else
+	   	render :edit and return
+	   end
+	    redirect_to route_stops_path(@stop.route)
    end
 
 	def edit
@@ -18,6 +22,11 @@ class StopsController < ApplicationController
 	def update
 		 @stop=Stop.find_by(id: params[:id])
 		 @stop.update(stop_params(params))
+		 if @stop.valid?
+		  @stop.save
+	   else
+	   	render :edit and return
+	   end
 		redirect_to route_stops_path(@stop.route)
 	end
 
