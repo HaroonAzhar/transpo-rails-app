@@ -1,5 +1,6 @@
-<% stops=Stop.all %>
-<% stops.each do |stop| %>
+
+
+<% @stops.each do |stop| %>
     <p><%= link_to stop.name, stop_path(stop) %></p> 	
 
 	<% end %>

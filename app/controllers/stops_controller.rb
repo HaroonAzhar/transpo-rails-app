@@ -30,7 +30,13 @@ class StopsController < ApplicationController
 	def edit
 		@stop=Stop.find_by(id: params[:id])
 	end
-
+   def index
+   	 if params[:route_id]
+   	 	@stops=Route.find_by(id: params[:route_id]).stops
+   	  else
+   	  	stops=Stop.all
+   	 end
+   end
 	def update
 		 @stop=Stop.find_by(id: params[:id])
 		 @stop.update(stop_params(params))
@@ -50,6 +56,7 @@ class StopsController < ApplicationController
 	def show
 		@stop=Stop.find_by(id: params[:id])
 	end
+
 
 	def destroy
     Stop.find(params[:id]).destroy
