@@ -1,0 +1,16 @@
+<div>
+   <%= render 'stops/stop-errors' %>
+
+   <h1>
+   	Create a stop for route number :<%= @route.number%>
+   </h1>
+	<%= form_for @stop do |f| %>
+	Number:<%= f.text_field :number %></br>
+	Name:<%= f.text_field :name %></br>
+	Details:<%= f.text_field :details %></br>
+	<%= f.hidden_field  :route_id, :value => @route.id %>
+	<%= hidden_field_tag :is_nested_form, :true %>
+	<%= f.submit %>
+	<% end %>
+</div>
+

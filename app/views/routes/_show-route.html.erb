@@ -1,6 +1,7 @@
 <h2>Route number : <%= @route.number %> </h2>
  <p> <%= link_to "edit", edit_route_path %></p>   
-     <p> <%= link_to "Delete", @route, method: :delete, data: { confirm: "Really?" } %></p>
+ <p> <%= link_to "Delete", @route, method: :delete, data: { confirm: "Really?" } %></p>
+ <p> <%= link_to "add a stop to this route",  new_route_stop_path(@route.id) %></p>   
 	
 
 <% @route.stops.each_with_index do |stop,index| %>
